@@ -3,36 +3,19 @@
 zshrc() {
 
     echo "==========================================================="
-    echo "             checking for oh-my-zsh                   "
+    echo "             checking for starship                   "
     echo "-----------------------------------------------------------"
     if [ ! -f "$ZSH/oh-my-zsh.sh" ]; then
         echo "==========================================================="
-        echo "             installing oh-my-zsh                   "
+        echo "             installing starship                   "
         echo "-----------------------------------------------------------"
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        sh -c "$(curl -sS https://starship.rs/install.sh)"
     fi
 
-
-    echo "==========================================================="
-    echo "             cloning zsh-autosuggestions                   "
-    echo "-----------------------------------------------------------"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    echo "==========================================================="
-    echo "             cloning zsh-syntax-highlighting               "
-    echo "-----------------------------------------------------------"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    echo "==========================================================="
-    echo "             cloning powerlevel10k                         "
-    echo "-----------------------------------------------------------"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     echo "==========================================================="
     echo "             import zshrc                                  "
     echo "-----------------------------------------------------------"
     cat .zshrc > $HOME/.zshrc
-    echo "==========================================================="
-    echo "             import powerlevel10k                          "
-    echo "-----------------------------------------------------------"
-    cat .p10k.zsh > $HOME/.p10k.zsh
 }
 
 # change time zone
